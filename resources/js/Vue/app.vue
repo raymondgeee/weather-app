@@ -159,9 +159,9 @@ export default {
             photos: {
 
             },
-            imgDetails: []
+            imgDetails: [
 
-
+            ]
         }
      },
      components: {
