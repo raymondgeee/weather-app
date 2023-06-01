@@ -1,6 +1,7 @@
 # Weather APP & Travel Information
 ## Overview
-    For the front-end i use Vue JS, seems this is a good to use for SPA(single-page applications). The documentation is also easy to understand and more resources from the internet, i use also sass for the design of the project as well as the grid system in css. I use Laravel Framework for the backend since its easy to use and also the documentations is good and understanable, it has a pre-built functions to use to lessen the time of the project creation. It has MVC structure that can easily organize the files.
+
+For the front-end i use Vue JS, seems this is a good to use for SPA(single-page applications). The documentation is also easy to understand and more resources from the internet, i use also sass for the design of the project as well as the grid system in css. I use Laravel Framework for the backend since its easy to use and also the documentations is good and understanable, it has a pre-built functions to use to lessen the time of the project creation. It has MVC structure that can easily organize the files.
 
 # Technical Details
   PHP - Laravel 10.12.0\
@@ -21,4 +22,4 @@
 6. Open the project to your browser: http://127.0.0.1:8000 or http://localhost:8000
 
 # Git Repository
-<!-- https://github.com/raymondgeee/Connect4.git -->
+https://github.com/raymondgeee/weather-app.git
