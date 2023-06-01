@@ -69,7 +69,7 @@
             <div class="details-main">
                 <div class="details-items">
                     <div class="details-title">
-                       Near Places to visit in {{ selectedCity }}
+                       Nearby Places to visit in {{ selectedCity }}
                     </div>
                     <div class="details-img">
                         <Carousel :autoplay="2000" :wrap-around="true">
