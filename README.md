@@ -9,8 +9,8 @@ For the front-end i use Vue JS, seems this is a good to use for SPA(single-page 
   Node v14.21.3\
   PHP v8.1.11
   
-# Installing the Project to Your Local Machine
-1. Clone the main branch from git repo to your local machine.
+# Installing the Project
+1. Clone the master branch from git repo to your local machine.
 2. Open git bash or terminal and navigate to the project folder
 3. Copy .env.example file, Command: cp.env.example .env
 4. On your terminal, install dependencies type : 
