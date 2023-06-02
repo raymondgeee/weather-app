@@ -45,7 +45,6 @@ body {
         }
     }
 
-
     .container-details {
         margin-top: 10px;
         display: grid;
@@ -60,11 +59,13 @@ body {
         .weather-main {
             border-right: 1px solid #f3eae8;
             border-width: 1px;
+            display: grid;
+            grid-template: row;
+            grid-template-rows: 1fr 1fr;
+            padding-top: 50px;
 
             .weather-items {
                 margin: 20px;
-                margin-top: 120px;
-                height: 300px;
                 background-color: #fff;
 
                 .weather-title {
@@ -76,9 +77,30 @@ body {
                     text-align: center;
 
                     .container-left, .container-right {
+                        display:flex;
+                        justify-content: center;
+                        align-items: center;
                         .hover {
                             cursor: pointer;
                         }
+                    }
+
+                    .container-city select{
+                        text-align-last:right;
+                        background-color: #fff;
+                        border: thin solid #cccbca;
+                        border-radius: 4px;
+                        display: inline-block;
+                        font: inherit;
+                        line-height: 1.5em;
+                        padding: 0.5em 3.5em 0.5em 1em;
+
+                        margin: 0;
+                        -webkit-box-sizing: border-box;
+                        -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
                     }
                 }
 
@@ -129,6 +151,41 @@ body {
 
                     .temp_min {
                         border: 1px solid black;
+                    }
+                }
+            }
+
+            .other-details {
+                display: flex;
+                flex-direction: column;
+
+                .tz-details {
+                    text-align: center;
+
+                    label {
+                        margin-top:10px;
+                        font-weight: 600;
+                        font-size: 15px;
+                    }
+                }
+
+                .other-details-item {
+                    display: grid;
+                    grid-template: column;
+                    grid-template-columns: 1fr 1fr;
+                    text-align: center;
+                    padding: 30px;
+
+                    .sunrise, .sunset {
+                        display: flex;
+                        flex-direction: column;
+
+                        label {
+                            margin-top:10px;
+                            font-weight: 500;
+                            font-size: 13px;
+                        }
+
                     }
                 }
             }

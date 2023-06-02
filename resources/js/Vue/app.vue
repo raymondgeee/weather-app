@@ -24,7 +24,11 @@
                             <i class="fa fa-circle-chevron-left hover" @click="prev()"></i>
                         </div>
                         <div class="container-city">
-                            <label class="selected-city">{{ selectedCity }}</label>
+                            <select @change="onChange()" v-model="selectedCity">
+                                <option v-for="city in cities">
+                                    {{ city }}
+                                </option>
+                            </select>
                         </div>
                         <div class="container-right">
                             <i class="fa fa-circle-chevron-right hover" @click="next()"></i>
@@ -65,15 +69,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="other-details">
+                    <div class="tz-details">
+                        <label>UTC {{ weather.timezone }}</label>
+                    </div>
+                    <div class="other-details-item">
+                        <div class="sunrise">
+                            <i class="fa fa-5x fa-sun"></i>
+                            <label>Sunrise at {{ weather.sunrise }}</label>
+                        </div>
+                        <div class="sunset">
+                            <i class="fa fa-5x fa-moon"></i>
+                            <label>Sunset at {{ weather.sunset }}</label>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="details-main">
                 <div class="details-items">
                     <div class="details-title">
-                       Nearby Places to visit in {{ selectedCity }}
+                       Nearby Places in {{ selectedCity }}
                     </div>
                     <div class="details-img">
                         <Carousel :autoplay="2000" :wrap-around="true">
-                            <Slide v-for="photo in imgDetails" :key="slide">
+                            <Slide v-for="photo in imgDetails" :key="photo.url">
                                 <img class="carousel__item" :src="photo.url"  alt="Photos"/>
                             </Slide>
 
@@ -122,7 +141,8 @@
     </div>
 </template>
 <script>
-import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
+import { Carousel, Pagination, Slide } from 'vue3-carousel'
+import moment from 'moment-timezone'
 import icon from '../../img/3925253.png'
 export default {
     data () {
@@ -151,6 +171,9 @@ export default {
                 main: "",
                 deg: "",
                 speed: "",
+                sunrise: "",
+                sunset: "",
+                timezone: "",
                 icon: "",
             },
             place: {
@@ -167,8 +190,7 @@ export default {
      components: {
         Carousel,
         Slide,
-        Pagination,
-        // Navigation,
+        Pagination
     },
      methods: {
         onChange: async function() {
@@ -189,6 +211,12 @@ export default {
             this.weather.deg = weather.wind.deg
             this.weather.speed = weather.wind.speed
             this.weather.icon = weather.weather[0].icon
+            this.weather.sunrise = moment.utc(weather.sys.sunrise,'X').add(weather.timezone,'seconds').format('HH:mm')
+            this.weather.sunset = moment.utc(weather.sys.sunset,'X').add(weather.timezone,'seconds').format('HH:mm')
+            this.weather.timezone = moment.tz('Asia/Tokyo').format('Z z')
+
+            const index = this.cities.indexOf(city);
+            this.count = index
 
             this.totalPlaces = places.length
             this.place = places[this.countPlaces]
@@ -218,8 +246,6 @@ export default {
 
                 this.imgDetails.push(photoDetails)
             });
-
-            console.log(weather)
         },
         next() {
             this.count++
