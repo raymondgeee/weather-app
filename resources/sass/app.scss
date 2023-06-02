@@ -62,7 +62,6 @@ body {
             display: grid;
             grid-template: row;
             grid-template-rows: 1fr 1fr;
-            padding-top: 50px;
 
             .weather-items {
                 margin: 20px;
@@ -197,7 +196,6 @@ body {
                 display: grid;
                 grid-template: row;
                 grid-template-rows: 50px 400px 1fr ;
-                height: 70vh;
 
                 .details-title {
                     text-align: center;

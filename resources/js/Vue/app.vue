@@ -12,7 +12,6 @@
             <div class="weather-main">
                 <div class="weather-items">
                     <div class="weather-temp">
-                        <!-- <i class="fa fa-cloud"> </i> -->
                         <img :src="'https://openweathermap.org/img/wn/'+weather.icon+'@2x.png'">
                         <span>{{ weather.temp }}&deg;C</span>
                     </div>
